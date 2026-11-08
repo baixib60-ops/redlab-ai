@@ -19,7 +19,7 @@ with st.sidebar:
     days = st.slider("排期天数", 7, 30, 14)
     st.divider()
     st.caption("AI API 可选：未配置时使用明确标记的模板演示模式。请勿分享密钥。")
-    api_key = st.text_input("SiliconFlow API Key（可留空）", type="password")
+    api_key = st.secrets.get("SILICONFLOW_API_KEY", "")
     model = st.text_input("模型名称", "Qwen/Qwen3.5-4B")
 
 def ask_ai(task, context):
